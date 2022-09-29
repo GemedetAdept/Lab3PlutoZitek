@@ -1,0 +1,15 @@
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.csproj.AssemblyReference.cache
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.AssemblyInfoInputs.cache
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.AssemblyInfo.cs
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.csproj.CoreCompileInputs.cache
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\bin\Debug\net6.0\Lab3PlutoZitek.exe
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\bin\Debug\net6.0\Lab3PlutoZitek.deps.json
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\bin\Debug\net6.0\Lab3PlutoZitek.runtimeconfig.json
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\bin\Debug\net6.0\Lab3PlutoZitek.dll
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\bin\Debug\net6.0\Lab3PlutoZitek.pdb
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.dll
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\refint\Lab3PlutoZitek.dll
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.pdb
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\Lab3PlutoZitek.genruntimeconfig.cache
+C:\Users\vivia\c#\cs_1400_2022\CS_1400_2022\labs\Lab3PlutoZitek\obj\Debug\net6.0\ref\Lab3PlutoZitek.dll

@@ -7,14 +7,14 @@ int firstInputNumber = 0;
 int secondInputNumber = 0;
 int userInputResult = 0;
 
-		string loopSelector = "for";
-
 string moduloResult = "";
 int moduloDivisor = 0;
 
 // Select which arithmetic operation to use on two inputted numbers
 arithmeticSelectionMenu:
+	Console.ResetColor();
 	Console.Clear();
+
 	bool menuBool = true;
 
 	while (menuBool) {
@@ -92,6 +92,8 @@ arithmeticSelectionMenu:
 		}
 
 		Console.WriteLine($"> {userInputResult}");
+
+		goto moduloSelectionMenu;
 	}
 
 // Select which of the loops below to use
@@ -99,7 +101,7 @@ moduloSelectionMenu:
 	Console.Clear();
 	menuBool = true;
 
-	int moduluoSelection = 0;
+	int moduloSelection = 0;
 
 	while (menuBool) {
 		Console.WriteLine($"Check if {userInputResult} is evenly divisible by:");
@@ -115,13 +117,13 @@ moduloSelectionMenu:
 		switch (moduloSelection) {
 
 			case 1:
-				printSelection = "add";
+				goto moduloTwentyThree;
 				break;
 			case 2:
-				printSelection = "subtract";
+				goto moduloThirtyFour;
 				break;
 			case 3:
-				printSelection = "multiply";
+				goto moduloThirtyThree;
 				break;
 			case 4:
 				goto exitProgram;
@@ -138,24 +140,99 @@ moduloSelectionMenu:
 
 // While Loop
 moduloTwentyThree:
-if (loopSelector == "while" && loopBool == true) {
+	if (loopBool == true) {
 
-	while (loopBool)  {
+		while (loopBool)  {
+
+			// Reset the console's background color
+			Console.ResetColor();
+			Console.Clear();
+
+			moduloDivisor = 23;
+
+			if (userInputResult % moduloDivisor == 0) {
+				Console.BackgroundColor = ConsoleColor.Green;
+				moduloResult = "is";
+			}
+
+			else {
+				Console.BackgroundColor = ConsoleColor.Red;
+				moduloResult = "is not";
+			}
+
+			Console.Clear();
+			Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
+
+			Console.WriteLine("Press any key to continue...");
+			Console.ReadKey();
+
+			goto arithmeticSelectionMenu;
+		}
+
+	}
+
+
+// Do While loop
+moduloThirtyFour:
+	while (loopBool == true) {
 
 		// Reset the console's background color
 		Console.ResetColor();
 		Console.Clear();
 
-		moduloDivisor = 23;
+		moduloDivisor = 34;
 
-		if (userInputResult % moduloDivisor == 0) {
-			Console.BackgroundColor = ConsoleColor.Green;
-			moduloResult = "is";
+		do {
+			if (userInputResult % moduloDivisor == 0 ) {
+				Console.BackgroundColor = ConsoleColor.Green;
+				moduloResult = "is";
+			}
+			break;
 		}
+		while (loopBool == true);
 
-		else {
-			Console.BackgroundColor = ConsoleColor.Red;
-			moduloResult = "is not";
+		do {
+			if (userInputResult % moduloDivisor != 0){
+				Console.BackgroundColor = ConsoleColor.Red;
+				moduloResult = "is not";
+			}
+			break;
+		}
+		while (loopBool == true);
+
+		Console.Clear();
+		Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
+
+		Console.WriteLine("Press any key to continue...");
+		Console.ReadKey();
+
+		goto arithmeticSelectionMenu;
+	}
+
+
+// For Loop
+moduloThirtyThree:
+	while (loopBool == true) {
+
+		// Reset the console's background color
+		Console.ResetColor();
+		Console.Clear();
+
+		moduloDivisor = 33;
+
+		for (int i; loopBool == true;) {
+
+			if (userInputResult % moduloDivisor == 0) {
+				Console.BackgroundColor = ConsoleColor.Green;
+				moduloResult = "is";
+				break;
+			}
+
+			if (userInputResult % moduloDivisor != 0) {
+				Console.BackgroundColor = ConsoleColor.Red;
+				moduloResult = "is not";
+				break;
+			}
 		}
 
 		Console.Clear();
@@ -163,92 +240,17 @@ if (loopSelector == "while" && loopBool == true) {
 
 		Console.WriteLine("Press any key to continue...");
 		Console.ReadKey();
+
+		goto arithmeticSelectionMenu;
+		
 	}
-
-}
-
-
-// Do While loop
-moduloThirtyFour:
-while (loopSelector == "do while" && loopBool == true) {
-
-	// Reset the console's background color
-	Console.ResetColor();
-	Console.Clear();
-
-	moduloDivisor = 34;
-
-	do {
-		if (userInputResult % moduloDivisor == 0 ) {
-			Console.BackgroundColor = ConsoleColor.Green;
-			moduloResult = "is";
-		}
-		break;
-	}
-	while (loopBool == true);
-
-	do {
-		if (userInputResult % moduloDivisor != 0){
-			Console.BackgroundColor = ConsoleColor.Red;
-			moduloResult = "is not";
-		}
-		break;
-	}
-	while (loopBool == true);
-
-	Console.Clear();
-	Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
-
-	Console.WriteLine("Press any key to continue...");
-	Console.ReadKey();
-}
-
-// For Loop
-moduloThirtyThree:
-while (loopSelector == "for" && loopBool == true) {
-
-	// Reset the console's background color
-	Console.ResetColor();
-	Console.Clear();
-
-	moduloDivisor = 33;
-
-	for (int i; loopBool == true;) {
-
-		if (userInputResult % moduloDivisor == 0) {
-			Console.BackgroundColor = ConsoleColor.Green;
-			moduloResult = "is";
-			break;
-		}
-
-		if (userInputResult % moduloDivisor != 0) {
-			Console.BackgroundColor = ConsoleColor.Red;
-			moduloResult = "is not";
-			break;
-		}
-	}
-
-	Console.Clear();
-	Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
-
-	Console.WriteLine("Press any key to continue...");
-	Console.ReadKey();
-	
-}
 
 
 // Exit Program
-if (loopBool == false) {
-	Console.Clear();
-	Console.WriteLine("Thanks for playing!");
-
-	Console.ReadKey();
-	Environment.Exit(0);
-}
-
 exitProgram:
 	Console.Clear();
 	Console.WriteLine("Thanks for playing!");
 
 	Console.ReadKey();
+	Console.Clear();
 	Environment.Exit(0);

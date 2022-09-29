@@ -1,4 +1,67 @@
-﻿bool loopBool = true;
+﻿selectionMenu:
+	Console.Clear();
+	bool menuBool = true;
+
+	while (menuBool) {
+
+		Console.WriteLine("Select an option below:");
+			Console.WriteLine("[1] > Add");
+			Console.WriteLine("[2] > Subtract");
+			Console.WriteLine("[3] > Multiply");
+			Console.WriteLine("[4] > Divide");
+			Console.WriteLine("[5] > [Exit Program]");
+		Console.WriteLine("");
+
+		int menuSelection = 0;
+		Console.Write("Enter the number of the desired option > ");
+		menuSelection = int.Parse(Console.ReadLine());
+
+		string printSelection = "";
+		Console.WriteLine("");
+
+		switch (menuSelection) {
+
+			case 1:
+				printSelection = "add";
+				break;
+
+			case 2:
+				printSelection = "subtract";
+				break;
+
+			case 3:
+				printSelection = "multiply";
+				break;
+
+			case 4:
+				printSelection = "divide";
+				break;
+
+			case 5:
+				goto exitProgram;
+
+			default:
+				Console.Clear();
+				Console.WriteLine($"{menuSelection} is an invalid option.");
+				Console.Write("Press any key to return to menu...");
+				Console.ReadKey();
+				goto selectionMenu;
+		}
+
+		int firstInputNumber = 0;
+		int secondInputNumber = 0; 
+
+		Console.WriteLine($"Enter two numbers to {printSelection}:");
+			Console.Write("First number >");
+			firstInputNumber = int.Parse(Console.ReadLine());
+			Console.WriteLine("");
+			Console.Write("Second number >");
+			secondInputNumber = int.Parse(Console.ReadLine());
+
+
+	}
+
+bool loopBool = true;
 
 		string loopSelector = "for";
 
@@ -197,3 +260,10 @@ if (loopBool == false) {
 	Console.ReadKey();
 	Environment.Exit(0);
 }
+
+exitProgram:
+	Console.Clear();
+	Console.WriteLine("Thanks for playing!");
+
+	Console.ReadKey();
+	Environment.Exit(0);

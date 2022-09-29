@@ -10,7 +10,7 @@ int upperBound = 0;
 string userInput = "";
 
 // While Loop
-if (loopSelector == "while") {
+if (loopSelector == "while" && loopBool == true) {
 
 	while (loopBool)  {
 
@@ -27,12 +27,8 @@ if (loopSelector == "while") {
 
 		// Exit program if user types "exit"
 		if (userInput == "exit") {
-
-			Console.Clear();
-			Console.WriteLine("Thanks for playing!");
-
-			Console.ReadKey();
-			Environment.Exit(0);
+			loopBool = false;
+			continue;
 		}
 
 		else {
@@ -74,7 +70,7 @@ if (loopSelector == "while") {
 
 
 // Do While loop
-while (loopSelector == "do while") {
+while (loopSelector == "do while" && loopBool == true) {
 
 	// Reset the console's background color
 	Console.ResetColor();
@@ -89,12 +85,8 @@ while (loopSelector == "do while") {
 
 	// Exit program if user types "exit"
 	if (userInput == "exit") {
-
-		Console.Clear();
-		Console.WriteLine("Thanks for playing!");
-
-		Console.ReadKey();
-		Environment.Exit(0);
+		loopBool = false;
+		continue;
 	}
 
 	// Convert input value to integer if not "exit"
@@ -113,7 +105,6 @@ while (loopSelector == "do while") {
 	else {
 
 		do {
-
 			if (inputNumber % moduloDivisor == 0 ) {
 				Console.BackgroundColor = ConsoleColor.Green;
 				moduloResult = "is";
@@ -123,7 +114,6 @@ while (loopSelector == "do while") {
 		while (loopBool == true);
 
 		do {
-
 			if (inputNumber % moduloDivisor != 0){
 				Console.BackgroundColor = ConsoleColor.Red;
 				moduloResult = "is not";
@@ -138,4 +128,12 @@ while (loopSelector == "do while") {
 		Console.WriteLine("Press any key to continue...");
 		Console.ReadKey();
 	}
+}
+
+if (loopBool == false) {
+	Console.Clear();
+	Console.WriteLine("Thanks for playing!");
+
+	Console.ReadKey();
+	Environment.Exit(0);
 }

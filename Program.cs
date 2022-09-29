@@ -1,4 +1,19 @@
-﻿selectionMenu:
+﻿// There is probably a more programmatic approach to ALL of this, but I'm doing my best to just make it work.
+
+bool loopBool = true;
+
+int menuSelection = 0;
+int firstInputNumber = 0;
+int secondInputNumber = 0;
+int userInputResult = 0;
+
+		string loopSelector = "for";
+
+string moduloResult = "";
+int moduloDivisor = 0;
+
+// Select which arithmetic operation to use on two inputted numbers
+arithmeticSelectionMenu:
 	Console.Clear();
 	bool menuBool = true;
 
@@ -12,7 +27,6 @@
 			Console.WriteLine("[5] > [Exit Program]");
 		Console.WriteLine("");
 
-		int menuSelection = 0;
 		Console.Write("Enter the number of the desired option > ");
 		menuSelection = int.Parse(Console.ReadLine());
 
@@ -24,19 +38,15 @@
 			case 1:
 				printSelection = "add";
 				break;
-
 			case 2:
 				printSelection = "subtract";
 				break;
-
 			case 3:
 				printSelection = "multiply";
 				break;
-
 			case 4:
 				printSelection = "divide";
 				break;
-
 			case 5:
 				goto exitProgram;
 
@@ -45,34 +55,89 @@
 				Console.WriteLine($"{menuSelection} is an invalid option.");
 				Console.Write("Press any key to return to menu...");
 				Console.ReadKey();
-				goto selectionMenu;
+				goto arithmeticSelectionMenu;
 		}
 
-		int firstInputNumber = 0;
-		int secondInputNumber = 0; 
-
 		Console.WriteLine($"Enter two numbers to {printSelection}:");
-			Console.Write("First number >");
+			Console.Write("First number > ");
 			firstInputNumber = int.Parse(Console.ReadLine());
-			Console.WriteLine("");
-			Console.Write("Second number >");
+			Console.Write("Second number > ");
 			secondInputNumber = int.Parse(Console.ReadLine());
 
+		// Check for division by 0
+		if (menuSelection == 4 && secondInputNumber == 0) {
+			Console.Clear();
+			Console.WriteLine("Error: Cannot divide by zero.");
+			Console.Write("Press any key to return to menu...");
+			Console.ReadKey();
+			goto arithmeticSelectionMenu;
+		}
 
+
+		// Calculating output number
+		if (menuSelection == 1) {
+			userInputResult = firstInputNumber + secondInputNumber;
+		}
+
+		else if (menuSelection == 2) {
+			userInputResult = firstInputNumber - secondInputNumber;
+		}
+
+		else if (menuSelection == 3) {
+			userInputResult = firstInputNumber * secondInputNumber;
+		}
+
+		else if (menuSelection == 4) {
+			userInputResult = firstInputNumber / secondInputNumber;
+		}
+
+		Console.WriteLine($"> {userInputResult}");
 	}
 
-bool loopBool = true;
+// Select which of the loops below to use
+moduloSelectionMenu:
+	Console.Clear();
+	menuBool = true;
 
-		string loopSelector = "for";
+	int moduluoSelection = 0;
 
-string moduloResult = "";
-int moduloDivisor = 0;
-int lowerBound = 0;
-int upperBound = 0;
+	while (menuBool) {
+		Console.WriteLine($"Check if {userInputResult} is evenly divisible by:");
+			Console.WriteLine("[1] > 23");
+			Console.WriteLine("[2] > 34");
+			Console.WriteLine("[3] > 33");
+			Console.WriteLine("[4] > [Exit Program]");
+		Console.WriteLine("");
 
-string userInput = "";
+		Console.Write("Enter the number of the desired option > ");
+		moduloSelection = int.Parse(Console.ReadLine());
+
+		switch (moduloSelection) {
+
+			case 1:
+				printSelection = "add";
+				break;
+			case 2:
+				printSelection = "subtract";
+				break;
+			case 3:
+				printSelection = "multiply";
+				break;
+			case 4:
+				goto exitProgram;
+
+			default:
+				Console.Clear();
+				Console.WriteLine($"{menuSelection} is an invalid option.");
+				Console.Write("Press any key to return to menu...");
+				Console.ReadKey();
+				goto moduloSelectionMenu;
+		}
+	}
+
 
 // While Loop
+moduloTwentyThree:
 if (loopSelector == "while" && loopBool == true) {
 
 	while (loopBool)  {
@@ -81,174 +146,94 @@ if (loopSelector == "while" && loopBool == true) {
 		Console.ResetColor();
 		Console.Clear();
 
-		lowerBound = 10;
-		upperBound = 99;
 		moduloDivisor = 23;
 
-		Console.Write($"Enter a number between {10} and {99} or \"exit\" to Quit \n> ");
-		userInput = Console.ReadLine();
-
-		// Exit program if user types "exit"
-		if (userInput == "exit") {
-			loopBool = false;
-			continue;
+		if (userInputResult % moduloDivisor == 0) {
+			Console.BackgroundColor = ConsoleColor.Green;
+			moduloResult = "is";
 		}
 
 		else {
-
-			// Convert input value to integer if not "exit"
-			int inputNumber = 0;
-			inputNumber = int.Parse(userInput);
-
-
-			if (inputNumber < lowerBound || inputNumber > upperBound) {
-				Console.Clear();
-
-				Console.WriteLine($"{inputNumber} is not within the range of {lowerBound}–{upperBound}.");
-				Console.WriteLine("Press any key to continue...");
-				Console.ReadKey();
-
-				continue;
-			}
-
-			if (inputNumber % moduloDivisor == 0) {
-				Console.BackgroundColor = ConsoleColor.Green;
-				moduloResult = "is";
-			}
-
-			else {
-				Console.BackgroundColor = ConsoleColor.Red;
-				moduloResult = "is not";
-			}
-
-			Console.Clear();
-			Console.WriteLine($"{inputNumber} {moduloResult} divisible by {moduloDivisor}.");
-
-			Console.WriteLine("Press any key to continue...");
-			Console.ReadKey();
+			Console.BackgroundColor = ConsoleColor.Red;
+			moduloResult = "is not";
 		}
+
+		Console.Clear();
+		Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
+
+		Console.WriteLine("Press any key to continue...");
+		Console.ReadKey();
 	}
 
 }
 
 
 // Do While loop
+moduloThirtyFour:
 while (loopSelector == "do while" && loopBool == true) {
 
 	// Reset the console's background color
 	Console.ResetColor();
 	Console.Clear();
 
-	lowerBound = 10;
-	upperBound = 99;
 	moduloDivisor = 34;
 
-	Console.Write($"Enter a number between {10} and {99} or \"exit\" to Quit \n> ");
-	userInput = Console.ReadLine();
-
-	// Exit program if user types "exit"
-	if (userInput == "exit") {
-		loopBool = false;
-		continue;
-	}
-
-	// Convert input value to integer if not "exit"
-	int inputNumber = 0;
-	inputNumber = int.Parse(userInput);
-
-	if (inputNumber < lowerBound || inputNumber > upperBound) {
-		Console.Clear();
-
-		Console.WriteLine($"{inputNumber} is not within the range of {lowerBound}–{upperBound}.");
-		Console.WriteLine("Press any key to continue...");
-		Console.ReadKey();
-		continue;
-	}
-
-	else {
-
-		do {
-			if (inputNumber % moduloDivisor == 0 ) {
-				Console.BackgroundColor = ConsoleColor.Green;
-				moduloResult = "is";
-			}
-			break;
+	do {
+		if (userInputResult % moduloDivisor == 0 ) {
+			Console.BackgroundColor = ConsoleColor.Green;
+			moduloResult = "is";
 		}
-		while (loopBool == true);
-
-		do {
-			if (inputNumber % moduloDivisor != 0){
-				Console.BackgroundColor = ConsoleColor.Red;
-				moduloResult = "is not";
-			}
-			break;
-		}
-		while (loopBool == true);
-
-		Console.Clear();
-		Console.WriteLine($"{inputNumber} {moduloResult} divisible by {moduloDivisor}.");
-
-		Console.WriteLine("Press any key to continue...");
-		Console.ReadKey();
+		break;
 	}
+	while (loopBool == true);
+
+	do {
+		if (userInputResult % moduloDivisor != 0){
+			Console.BackgroundColor = ConsoleColor.Red;
+			moduloResult = "is not";
+		}
+		break;
+	}
+	while (loopBool == true);
+
+	Console.Clear();
+	Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
+
+	Console.WriteLine("Press any key to continue...");
+	Console.ReadKey();
 }
 
 // For Loop
+moduloThirtyThree:
 while (loopSelector == "for" && loopBool == true) {
 
 	// Reset the console's background color
 	Console.ResetColor();
 	Console.Clear();
 
-	lowerBound = 10;
-	upperBound = 99;
 	moduloDivisor = 33;
 
-	Console.Write($"Enter a number between {10} and {99} or \"exit\" to Quit \n> ");
-	userInput = Console.ReadLine();
+	for (int i; loopBool == true;) {
 
-	// Exit program if user types "exit"
-	if (userInput == "exit") {
-		loopBool = false;
-		continue;
-	}
-
-	// Convert input value to integer if not "exit"
-	int inputNumber = 0;
-	inputNumber = int.Parse(userInput);
-
-	if (inputNumber < lowerBound || inputNumber > upperBound) {
-		Console.Clear();
-
-		Console.WriteLine($"{inputNumber} is not within the range of {lowerBound}–{upperBound}.");
-		Console.WriteLine("Press any key to continue...");
-		Console.ReadKey();
-		continue;
-	}
-
-	else {
-
-		for (int i; loopBool == true;) {
-
-			if (inputNumber % moduloDivisor == 0) {
-				Console.BackgroundColor = ConsoleColor.Green;
-				moduloResult = "is";
-				break;
-			}
-
-			if (inputNumber % moduloDivisor != 0) {
-				Console.BackgroundColor = ConsoleColor.Red;
-				moduloResult = "is not";
-				break;
-			}
+		if (userInputResult % moduloDivisor == 0) {
+			Console.BackgroundColor = ConsoleColor.Green;
+			moduloResult = "is";
+			break;
 		}
 
-		Console.Clear();
-		Console.WriteLine($"{inputNumber} {moduloResult} divisible by {moduloDivisor}.");
-
-		Console.WriteLine("Press any key to continue...");
-		Console.ReadKey();
+		if (userInputResult % moduloDivisor != 0) {
+			Console.BackgroundColor = ConsoleColor.Red;
+			moduloResult = "is not";
+			break;
+		}
 	}
+
+	Console.Clear();
+	Console.WriteLine($"{userInputResult} {moduloResult} divisible by {moduloDivisor}.");
+
+	Console.WriteLine("Press any key to continue...");
+	Console.ReadKey();
+	
 }
 
 
